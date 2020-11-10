@@ -51,5 +51,35 @@ public class Classroom {
         Collections.sort(studentList);
         Collections.reverse(studentList);
         return studentList.toArray(new Student[studentList.size()]);
-}
+    }
+
+    public String getGradeBook(){
+        StringBuilder gradeBook = new StringBuilder();
+        Student [] kids = this.getStudentsByScore();
+        double a = Math.floor(.1 * kids.length);
+        double b = Math.floor(.29 * kids.length);
+        double c = Math.floor(.5 * kids.length);
+        double d = Math.floor(.89 * kids.length);
+
+        for(int i = 0; i < kids.length; i++){
+           gradeBook.append(kids[i].toString());
+           if(a == i){
+               gradeBook.append("\nGRADE: A\n");
+           }
+           else if(b == i){
+               gradeBook.append("\nGRADE: B\n");
+           }
+           else if(c == i){
+               gradeBook.append("\nGRADE: C\n");
+           }
+           else if(d == i){
+               gradeBook.append("\nGRADE: D\n");
+           }
+           else{
+               gradeBook.append("\nGRADE: F\n");
+           }
+        }
+        return gradeBook.toString();
+    }
+
 }

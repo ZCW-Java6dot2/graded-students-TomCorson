@@ -99,13 +99,48 @@ public class ClassroomTest {
         Student joe = new Student("Joe","Momma",joeExamScore);
         Double [] katieExamScore = {65.0,57.0,60.0};
         Student katie = new Student("Katie", "Schmatey",katieExamScore);
-        Double [] nedExamScore = {99.0,98.0,100.0}
+        Double [] nedExamScore = {99.0,98.0,100.0};
         Student ned = new Student("Ned","Flanders",nedExamScore);
         Student [] school = {bob,alice,joe,katie,ned};
         Classroom classR = new Classroom(school);
 
-        Student [] expected = {alice,bob};
-        Student [] actual = classR.getStudentsByScore();;
+        String expected = "Student name: Ned Flanders\n" +
+                "> Average score: 99.0\n" +
+                "> Exam scores:\n" +
+                "Exam 1 -> 99.0\n" +
+                "Exam 2 -> 98.0\n" +
+                "Exam 3 -> 100.0\n" +
+                "GRADE: A\n" +
+                "Student name: Alice Inwonderland\n" +
+                "> Average score: 94.0\n" +
+                "> Exam scores:\n" +
+                "Exam 1 -> 94.0\n" +
+                "Exam 2 -> 95.0\n" +
+                "Exam 3 -> 93.0\n" +
+                "GRADE: B\n" +
+                "Student name: Bob White\n" +
+                "> Average score: 90.0\n" +
+                "> Exam scores:\n" +
+                "Exam 1 -> 90.0\n" +
+                "Exam 2 -> 90.0\n" +
+                "Exam 3 -> 90.0\n" +
+                "GRADE: C\n" +
+                "Student name: Joe Momma\n" +
+                "> Average score: 75.33333333333333\n" +
+                "> Exam scores:\n" +
+                "Exam 1 -> 77.0\n" +
+                "Exam 2 -> 69.0\n" +
+                "Exam 3 -> 80.0\n" +
+                "GRADE: F\n" +
+                "Student name: Katie Schmatey\n" +
+                "> Average score: 60.666666666666664\n" +
+                "> Exam scores:\n" +
+                "Exam 1 -> 65.0\n" +
+                "Exam 2 -> 57.0\n" +
+                "Exam 3 -> 60.0\n" +
+                "GRADE: D\n";
+
+        String actual = classR.getGradeBook();
         assertEquals(expected,actual);
     }
 
